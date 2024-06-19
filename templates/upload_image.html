@@ -1,0 +1,46 @@
+
+{% block title %}
+Image Upload
+{% endblock %}
+{% block main %}
+    <style>
+    #form{
+        height: 200px;
+        width: 300px;
+        border:2px solid black;
+        font-size: 30px;
+        border-radius: 14px;
+    }  
+    </style>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <u>
+                    <h1 style="color : blue ; font-size: 30px;">
+                        Upload an Image here:
+                    </h1>
+                </u>
+                <form  action="" method="POST" enctype="multipart/form-data">
+                    {{ form.hidden_tag() }}
+                        {% for error in form.photo.errors %}
+                            <span style="color:red;">
+                                {{ error }}
+                            </span>
+                        {% endfor %}
+                    <div class="row justify-content-center" id="form">
+                        <center>
+                            <br>
+                            <div class="col-auto" >
+                                {{ form.photo(class="form-control") }}
+                            </div>
+                            <br>
+                            <div class="col-auto" >
+                                {{ form.submit(class="btn btn-sucess")}}
+                            </div>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
